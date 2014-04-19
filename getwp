@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Downloading wordpress"
+wget http://wordpress.org/latest.tar.gz
+echo "Extracting wordpress"
+tar -xzvf latest.tar.gz
+if [ -n "$1" ]
+	then
+		echo "Renaming to $1"
+		mv wordpress $1
+		rm latest.tar.gz
+fi
