@@ -3,14 +3,16 @@ set -e
 
 # Raspberry Pi dnsmasq script
 # Jared Loosli
+# avantidevelopment.com
+#
 # Inspired by 
 # Stephen Wood
 # www.heystephenwood.com
 # 
-# Usage: $ sudo ./raspberrypi_dnsmasq
+# Usage: $ sudo ./dnsmasq.sh
 #
 # Net install:
-#   $ curl https://raw.github.com/stephendotexe/raspberrypi/master/roles/dnsmasq_server | sudo sh
+#   $ curl https://raw.githubusercontent.com/jloosli/mybin/master/dnsmasq.sh | sudo sh
 
 # Must be run as root
 if [[ `whoami` != "root" ]]
