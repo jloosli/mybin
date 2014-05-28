@@ -21,7 +21,7 @@ then
   exit
 fi
 
-apt-get install -y dnsmasq
+apt-get install -y dnsutils dnsmasq
 cat - > /etc/dnsmasq.d/pi.conf <<DNSMASQCONF
 # pi.conf for raspberry pi    
 # By Jared Loosli http://avantidevelopment.com 
