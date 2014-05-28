@@ -6,6 +6,6 @@ if [ ! -z "$1" ]
 		THE_DIR="$1"
 fi
 
-find $THE_DIR -print0 | xargs -0 chown -v -h jloosli:www-data
+find $THE_DIR -print0 | xargs -0 chown -v -h www-data:www-data
 find $THE_DIR -type d -print0 | xargs -0 chmod -v 775
 find $THE_DIR -type f -not -executable -print0 | xargs -0 chmod -v 664
