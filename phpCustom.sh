@@ -22,7 +22,7 @@ then
 fi
 
 # Add packages/mods that need to be installed here
-apt-get install -y php5-curl
+apt-get install -y php5-curl php5-mongo
 cat - > /etc/php5/fpm/conf.d/10-custom.ini <<PHP5CONF
 ; 10-custom.ini 
 ; PHP custom settings
