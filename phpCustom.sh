@@ -32,6 +32,7 @@ cat - > /etc/php5/fpm/conf.d/10-custom.ini <<PHP5CONF
 include_path = ".:/usr/share/php:/var/www/cakephp/lib:/usr/bin"
 post_max_size = 2G
 upload_max_filesize = 2G
+session.save_path = "/tmp"
 
 PHP5CONF
 
