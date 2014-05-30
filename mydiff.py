@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+# To make meld work with git diff
+# See http://nathanhoad.net/how-to-meld-for-git-diffs-in-ubuntu-hardy
+
 import sys
 import os
 
