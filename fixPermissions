@@ -6,6 +6,10 @@ if [ ! -z "$1" ]
 		THE_DIR="$1"
 fi
 
-find $THE_DIR -print0 | xargs -0 chown -v -h www-data:www-data
+echo "Updating ownership"
+find $THE_DIR -not -iwholename '*.git*' -print0 | xargs -0 chown -h www-data:www-data
+echo "Updating directories"
 find $THE_DIR -type d -print0 | xargs -0 chmod -v 775
-find $THE_DIR -type f -not -executable -print0 | xargs -0 chmod -v 664
+echo "Updating files"
+find $THE_DIR -not -iwholename '*.git*' -type f -not -executable -print0 | xargs -0 chmod 664
+echo "Done."
