@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/google-chrome-beta --proxy-server="socks5://localhost:1078"
+

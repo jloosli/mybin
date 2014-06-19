@@ -1,6 +1,13 @@
 #!/bin/bash
 THE_DIR="/var/www/"
 
+# Must be run as root
+if [[ `whoami` != "root" ]]
+then
+  echo "This permission updater must be run as root or with sudo."
+  exit
+fi
+
 if [ ! -z "$1" ] 
 	then
 		THE_DIR="$1"
