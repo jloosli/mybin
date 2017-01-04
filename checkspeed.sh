@@ -14,7 +14,7 @@ if [[ $TESTRESULTS == Ping* ]]; then
 else
     echo "Test didn't work"
     MESSAGE="$TESTRESULTS"
-    TESTRESULTS=",,,,"
+    TESTRESULTS=",,,"
 fi
 EXPORTSTRING="$EXPORTSTRING$TESTRESULTS,$IP,$IPVSIX,$MESSAGE"
 echo $EXPORTSTRING | tee -a ${FILE}
