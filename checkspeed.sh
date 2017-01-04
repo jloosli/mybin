@@ -2,10 +2,10 @@
 
 TESTRESULTS=`speedtest --simple --share `
 FILE="$HOME/storage/Dropbox/downtown_issues/speedtest.csv"
-IP=`ifconfig | grep eno -n2 | sed -n '/inet /s/  */|/gp' | cut -d'|' -f3 | cut -d':' -f1`
-IPVSIX=`ifconfig | grep eno -n2 | sed -n '/inet6/s/  */|/gp' | cut -d'|' -f4`
+IP=`ifconfig | grep -A 3 eno1 | awk '/inet addr/{print substr($2,6)}'`
+IPVSIX=`ifconfig | grep -A 2 eno1 | awk '/inet6 addr/{print substr($3,6)}'`
 DATE=`date`
-
+MESSAGE=''
 EXPORTSTRING="$DATE,"
 
 if [[ $TESTRESULTS == Ping* ]]; then
@@ -13,7 +13,8 @@ if [[ $TESTRESULTS == Ping* ]]; then
     TESTRESULTS=$(echo $TESTRESULTS | cut -d' ' -f2,5,8,12 --output-delimiter=',')
 else
     echo "Test didn't work"
-    TESTRESULTS="$TESTRESULTS,,"
+    MESSAGE="$TESTRESULTS"
+    TESTRESULTS=",,,,"
 fi
-EXPORTSTRING="$EXPORTSTRING$TESTRESULTS,$IP,$IPVSIX"
+EXPORTSTRING="$EXPORTSTRING$TESTRESULTS,$IP,$IPVSIX,$MESSAGE"
 echo $EXPORTSTRING | tee -a ${FILE}
