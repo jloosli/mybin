@@ -2,8 +2,8 @@
 
 TESTRESULTS=`speedtest --simple --share `
 FILE="$HOME/storage/Dropbox/downtown_issues/speedtest.csv"
-IP=`ifconfig | grep -A 3 eno1 | awk '/inet addr/{print substr($2,6)}'`
-IPVSIX=`ifconfig | grep -A 2 eno1 | awk '/inet6 addr/{print substr($3,6)}'`
+IP=`/sbin/ifconfig | grep -A 3 eno1 | awk '/inet addr/{print substr($2,6)}'`
+IPVSIX=`/sbin/ifconfig | grep -A 2 eno1 | awk '/inet6 addr/{print substr($3,6)}'`
 DATE=`date`
 MESSAGE=''
 EXPORTSTRING="$DATE,"
