@@ -1,5 +1,12 @@
 #!/bin/bash
 
+NETWORK=`host localhost`
+if [[ "$NETWORK" =~ weber ]]
+then
+    echo "At Weber"
+else
+    echo "Not at Weber"
+fi
 TESTRESULTS=`speedtest --simple --share `
 FILE="$HOME/storage/Dropbox/downtown_issues/speedtest.csv"
 IP=`/sbin/ifconfig | grep -A 3 eno1 | awk '/inet addr/{print substr($2,6)}'`
