@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NETWORK=`host localhost`
+NETWORK=`hostname -A`
 if [[ "$NETWORK" =~ weber ]]
 then
     echo "At Weber"
